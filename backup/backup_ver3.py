@@ -21,8 +21,14 @@ if not os.path.exists(target_dir):
 today = target_dir + os.sep + time.strftime('%Y%m%d')
 #The current time is the name of zip archive
 now=time.strftime('%H%M%S')
+comment=input('Enter a comment -->')
+#check if a comment was entered
+if len(comment) == 0:
+	target=today + os.sep + now + '.bz2'
+else:
+	target = today + os.sep + now + '_'+ \
+	comment.replace(' ','_')+ '.bz2'
 
-target=today + os.sep + now + '.bz2'
 print(target)
 
 #Create the subdircoty if it isn't already there
